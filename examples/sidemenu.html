@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MenuSpy</title>
+  <link rel="stylesheet" href="assets/main.css">
+</head>
+<body>
+
+  <header id="main-header" class="side-menu">
+    <nav>
+      <ul>
+        <li class="active"><a href="#home"><span>Home</span></a></li>
+        <li><a href="#section-1"><span>Section 1</span></a></li>
+        <li><a href="#section-2"><span>Section 2</span></a></li>
+        <li><a href="#section-3"><span>Section 3</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <div class="inner">
+        <h1>Home</h1>
+      </div>
+    </section>
+
+    <section id="section-1">
+      <div class="inner">
+        <h2>Section 1</h2>
+      </div>
+    </section>
+
+    <section id="section-2">
+      <div class="inner">
+        <h2>Section 2</h2>
+      </div>
+    </section>
+
+    <section id="section-3">
+      <div class="inner">
+        <h2>Section 3</h2>
+      </div>
+    </section>
+  </main>
+
+  <ul id="demos-nav">
+    <li><a href="fixed-header.html">Fixed header</a></li>
+    <li class="active"><a href="sidemenu.html">Sidebar menu</a></li>
+    <li><a href="lavalamp.html">Lavalamp menu</a></li>
+  </ul>
+
+  <script src="../dist/menuspy.js"></script>
+  <script>
+    var elm = document.querySelector('#main-header');
+    var ms = new MenuSpy(elm);
+  </script>
+</body>
+</html>

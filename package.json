@@ -1,0 +1,48 @@
+{
+  "name": "menuspy",
+  "version": "1.0.0",
+  "title": "MenuSpy",
+  "author": {
+    "email": "leocs.1991@gmail.com",
+    "name": "Leonardo Santos"
+  },
+  "license": "MIT",
+  "description": "A JavaScript library to make navigation menus highlight active item based on the scroll position.",
+  "main": "dist/menuspy.js",
+  "keywords": [
+    "nav",
+    "navigation",
+    "menu",
+    "menuspy",
+    "scrollspy"
+  ],
+  "docs": "http://leocs.me/menuspy/",
+  "demo": "http://leocs.me/menuspy/demo",
+  "bugs": "https://github.com/lcdsantos/menuspy/issues",
+  "homepage": "http://leocs.me/menuspy/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lcdsantos/menuspy.git"
+  },
+  "devDependencies": {
+    "eslint": "^3.4.0",
+    "jasmine-core": "^2.5.0",
+    "karma": "^1.2.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "rollup-plugin-buble": "^0.13.0",
+    "rollup-plugin-eslint": "^2.0.2",
+    "rollup-watch": "^2.5.0",
+    "uglify-js": "^2.7.3"
+  },
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "npm run build:rollup -- --watch",
+    "build": "npm run build:rollup && npm run build:minify",
+    "build:rollup": "rollup -c",
+    "build:minify": "uglifyjs dist/menuspy.js --comments /^/*!/ --compress --mangle --output dist/menuspy.min.js",
+    "lint": "eslint \"src/**\"",
+    "test": "karma start"
+  }
+}
