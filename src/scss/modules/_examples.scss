@@ -1,0 +1,14 @@
+.examples {
+  margin-bottom: 50px;
+
+  &__item {
+    @extend .dib;
+    vertical-align: top;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__item + &__item {
+    margin-left: 10px;
+  }
+}

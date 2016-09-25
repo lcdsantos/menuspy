@@ -1,0 +1,27 @@
+.table-options {
+  width: 100%;
+  margin-top: 2em;
+  table-layout: fixed;
+
+  th {
+    border-bottom: 1px solid #F0F0F0;
+    padding: 0 0 20px;
+    text-align: left;
+
+    + th {
+      padding-left: 20px;
+    }
+  }
+
+  td {
+    padding: 20px 0;
+
+    + td {
+      padding-left: 20px;
+    }
+  }
+
+  a {
+    color: #3f51b5;
+  }
+}

@@ -1,0 +1,31 @@
+.social-buttons {
+  list-style: none;
+  margin: 80px auto;
+  text-align: center;
+  padding: 0;
+
+  &__item {
+    @extend .dib;
+    vertical-align: top;
+    margin: 0 5px;
+
+    &--github iframe {
+      border: 0;
+      overflow: hidden;
+      vertical-align: top;
+    }
+
+    &--facebook .fb_iframe_widget {
+      font-size: 0;
+    }
+
+    a {
+      color: #FFF;
+    }
+  }
+}
+
+.cp_embed_iframe {
+  vertical-align: bottom;
+  margin: 0 0 40px;
+}

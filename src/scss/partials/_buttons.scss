@@ -1,0 +1,29 @@
+.btn {
+  @extend .dib;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #FFF;
+  border-bottom-width: 3px;
+  border-radius: 4px;
+  transition: 0.2s;
+
+  &:hover {
+    background: #FFF;
+    color: $color-dark-blue;
+  }
+}
+
+.btn-group .btn + .btn {
+  margin-left: 20px;
+}
+
+.btn--inverted {
+  @extend .btn;
+  border-color: $color-dark-blue;
+  color: $color-dark-blue;
+
+  &:hover {
+    background: $color-dark-blue;
+    color: #FFF;
+  }
+}

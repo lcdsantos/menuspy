@@ -1,0 +1,55 @@
+$color-dark-blue: #2c3e50;
+
+.cf, .container {
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+}
+
+.clear, .cf:after, .container:after {
+  clear: both;
+}
+
+.cf, .container {
+  zoom: 1;
+}
+
+body {
+  font-size: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: $color-dark-blue;
+}
+
+h1 {
+  font-size: 2.25em;
+  margin: 2em 0;
+}
+
+h2 {
+  font-size: 1.88em;
+  margin: 2em 0;
+}
+
+.container {
+  max-width: 1180px;
+  margin: auto;
+}
+
+a {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+}
+
+.anchor {
+  position: relative;
+  top: -60px;
+}
+
+.dib {
+  display: inline-block;
+  vertical-align: middle;
+  zoom: 1;
+  *display: inline;
+}

@@ -1,0 +1,43 @@
+/* Intro */
+.intro {
+  background: url(https://unsplash.it/1024/576/?image=1067&blur) 50% 50% #2c3e50;
+  background-size: cover;
+  text-align: center;
+  width: 100%;
+  height: 110vh;
+  position: relative;
+  color: #FFF;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 62, 80, 0.7);
+  }
+
+  .container {
+    height: 100%;
+    display: table;
+    position: relative;
+    z-index: 2;
+  }
+
+  .center {
+    display: table-cell;
+    vertical-align: middle;
+    padding-bottom: 150px;
+  }
+
+  h1 {
+    font: normal 100px 'Open Sans Condensed', sans-serif;
+    margin: 0;
+  }
+
+  p {
+    margin-bottom: 30px;
+    max-width: 520px;
+  }
+}
