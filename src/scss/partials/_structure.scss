@@ -50,7 +50,6 @@ header {
     }
 
     a {
-      color: $color-dark-blue;
       transition: 0.2s;
 
       &:hover {
@@ -95,7 +94,7 @@ pre {
 }
 
 footer {
-  color: #888;
+  color: mix($color-dark-blue, #FFF, 80%);
   margin-top: 2em;
   font-size: 12/16*1em;
 
@@ -119,7 +118,7 @@ footer {
   }
 
   a:hover {
-    color: #444;
+    color: #b9cc14;
   }
 
   @media screen and (max-width: 960px) {

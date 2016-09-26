@@ -24,6 +24,7 @@
     position: absolute;
     top: 2px;
     left: 0;
+    fill: mix($color-dark-blue, #fff, 40%);
 
     @media screen and (max-width: 960px) {
       width: 50px;
