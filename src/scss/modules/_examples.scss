@@ -6,9 +6,19 @@
     vertical-align: top;
     overflow: hidden;
     position: relative;
+    text-align: center;
+
+    @media screen and (max-width: 540px) {
+      display: block;
+    }
   }
 
   &__item + &__item {
     margin-left: 10px;
+
+    @media screen and (max-width: 540px) {
+      margin-left: 0;
+      margin-top: 10px;
+    }
   }
 }

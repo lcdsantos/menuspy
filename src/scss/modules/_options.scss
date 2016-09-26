@@ -1,23 +1,32 @@
+.table-options-wrapper {
+  overflow: auto;
+}
+
 .table-options {
   width: 100%;
   margin-top: 2em;
   table-layout: fixed;
 
+  @media screen and (max-width: 960px) {
+    font-size: 0.8em;
+    width: auto;
+  }
+
   th {
     border-bottom: 1px solid #F0F0F0;
-    padding: 0 0 20px;
+    padding: 0 0 20/16*1em;
     text-align: left;
 
     + th {
-      padding-left: 20px;
+      padding-left: 20/16*1em;
     }
   }
 
   td {
-    padding: 20px 0;
+    padding: 20/16*1em 0;
 
     + td {
-      padding-left: 20px;
+      padding-left: 20/16*1em;
     }
   }
 

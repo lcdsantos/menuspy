@@ -1,6 +1,6 @@
 .btn {
   @extend .dib;
-  padding: 10px 20px;
+  padding: 10/16*1em 20/16*1em;
   font-size: 16px;
   border: 1px solid #FFF;
   border-bottom-width: 3px;
@@ -11,11 +11,34 @@
     background: #FFF;
     color: $color-dark-blue;
   }
+
+  @media screen and (max-width: 960px) {
+    font-size: 12px;
+  }
 }
 
-.btn-group .btn + .btn {
-  margin-left: 20px;
+.btn-group {
+  .btn {
+    @media screen and (max-width: 540px) {
+      display: block;
+    }
+  }
+
+  .btn + .btn {
+    margin-left: 1em;
+
+    @media screen and (max-width: 960px) {
+      margin-left: 0;
+    }
+
+    @media screen and (max-width: 540px) {
+      margin-left: 0;
+      margin-top: 1em;
+    }
+  }
+
 }
+
 
 .btn--inverted {
   @extend .btn;

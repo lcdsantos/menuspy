@@ -24,6 +24,12 @@ header {
     position: relative;
     transition: 0.2s;
 
+    @media screen and (max-width: 960px) {
+      margin: 0;
+      font-size: 12px;
+      padding: 8px 10px;
+    }
+
     &:after {
       content: "";
       position: absolute;
@@ -85,16 +91,13 @@ pre {
   padding: 1em !important;
   border: none;
   font-size: 0.8em;
+  overflow: auto;
 }
 
 footer {
   color: #888;
   margin-top: 2em;
-  font-size: 0.88em;
-
-  a:hover {
-    color: #444;
-  }
+  font-size: 12/16*1em;
 
   .container {
     border-top: 1px solid #F0F0F0;
@@ -103,7 +106,27 @@ footer {
   }
 
   .copy {
-    font-size: 12px;
     line-height: 1.8;
+  }
+
+  .col-left {
+    float: left;
+  }
+
+  .col-right {
+    float: right;
+    text-align: right;
+  }
+
+  a:hover {
+    color: #444;
+  }
+
+  @media screen and (max-width: 960px) {
+    .col-left,
+    .col-right {
+      float: none;
+      text-align: center;
+    }
   }
 }

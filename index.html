@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="A JavaScript library to make navigation menus highlight active item based on the scroll position.">
+  <meta name="description" content="A JavaScript library to make navigation menus highlight the item based on currently in view section.">
   <meta name="robots" content="all">
   <title>MenuSpy</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -12,7 +12,7 @@
 
   <meta property="og:title"        content="MenuSpy">
   <meta property="og:type"         content="website">
-  <meta property="og:description"  content="A JavaScript library to make navigation menus highlight active item based on the scroll position.">
+  <meta property="og:description"  content="A JavaScript library to make navigation menus highlight the item based on currently in view section.">
   <meta property="og:url"          content="https://leocs.me/menuspy/">
   <meta property="og:site_name"    content="MenuSpy">
   <meta property="og:image"        content="https://leocs.me/menuspy/assets/img/share.png">
@@ -23,7 +23,7 @@
   <meta name="twitter:site"        content="@lcdsantos">
   <meta name="twitter:creator"     content="@lcdsantos">
   <meta name="twitter:title"       content="MenuSpy">
-  <meta name="twitter:description" content="A JavaScript library to make navigation menus highlight active item based on the scroll position.">
+  <meta name="twitter:description" content="A JavaScript library to make navigation menus highlight the item based on currently in view section.">
   <meta name="twitter:image:src"   content="https://leocs.me/menuspy/assets/img/share.png">
 
   <link rel="author" href="https://plus.google.com/110463198138936295653/posts">
@@ -49,7 +49,7 @@
     <div class="container">
       <div class="center">
         <h1>MenuSpy</h1>
-        <p>A JavaScript library to make navigation menus highlight active item based on the scroll position.</p>
+        <p>A JavaScript library to make navigation menus highlight the item based on currently in view section.</p>
         <div class="btn-group">
           <a href="https://github.com/lcdsantos/menuspy/zipball/master" class="btn">Download (ZIP)</a>
           <a href="https://github.com/lcdsantos/menuspy/tarball/master" class="btn">Download (TAR)</a>
@@ -91,7 +91,7 @@
         </li>
 
         <li class="social-buttons__item social-buttons__item--tweet">
-          <a href="https://twitter.com/share" class="twitter-share-button" data-text="A JavaScript library to make navigation menus highlight active item based on the scroll position." data-via="lcdsantos" data-related="lcdsantos">Tweet</a>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-text="A JavaScript library to make navigation menus highlight the item based on currently in view section." data-via="lcdsantos" data-related="lcdsantos">Tweet</a>
         </li>
 
         <li class="social-buttons__item social-buttons__item--facebook">
@@ -152,48 +152,50 @@ var ms = new MenuSpy(elm, {
   activeClass: 'current-item'
 });</code></pre>
 
-      <table class="table-options">
-        <thead>
-          <tr>
-            <th>Option</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>menuItemSelector</code></td>
-            <td>String</td>
-            <td><code>a[href^="#"]</code></td>
-            <td>Menu items selector.</td>
-          </tr>
-          <tr>
-            <td><code>activeClass</code></td>
-            <td>String</td>
-            <td><code>active</code></td>
-            <td>Class applied on menu item relative to the currently visible section.</td>
-          </tr>
-          <tr>
-            <td><code>threshold</code></td>
-            <td>Integer</td>
-            <td><code>15</code></td>
-            <td>Ammount of space between your menu and the next section to be activated.</td>
-          </tr>
-          <tr>
-            <td><code>hashTimeout</code></td>
-            <td>Integer</td>
-            <td><code>600</code></td>
-            <td>Timeout to apply browser's hash location.</td>
-          </tr>
-          <tr>
-            <td><code>callback</code></td>
-            <td>Function</td>
-            <td><code>function(anchorElm, targetElm) {}</code></td>
-            <td>A function to be called every time a new menu item activates.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-options-wrapper">
+        <table class="table-options">
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>menuItemSelector</code></td>
+              <td>String</td>
+              <td><code>a[href^="#"]</code></td>
+              <td>Menu items selector.</td>
+            </tr>
+            <tr>
+              <td><code>activeClass</code></td>
+              <td>String</td>
+              <td><code>active</code></td>
+              <td>Class applied on menu item relative to the currently visible section.</td>
+            </tr>
+            <tr>
+              <td><code>threshold</code></td>
+              <td>Integer</td>
+              <td><code>15</code></td>
+              <td>Ammount of space between your menu and the next section to be activated.</td>
+            </tr>
+            <tr>
+              <td><code>hashTimeout</code></td>
+              <td>Integer</td>
+              <td><code>600</code></td>
+              <td>Timeout to apply browser's hash location.</td>
+            </tr>
+            <tr>
+              <td><code>callback</code></td>
+              <td>Function</td>
+              <td><code>function(anchorElm, targetElm) {}</code></td>
+              <td>A function to be called every time a new menu item activates.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="container">
@@ -211,10 +213,10 @@ var ms = new MenuSpy(elm, {
 
   <footer>
     <div class="container">
-      <div class="copy">
-        <p style="float: left;">Project maintained by <b>Leonardo Santos</b> <br>
+      <div class="cf copy">
+        <p class="col-left">Project maintained by <b>Leonardo Santos</b> <br>
         <a href="https://github.com/lcdsantos">Github</a> • <a href="https://twitter.com/lcdsantos">Twitter</a> • <a href="mailto:leocs.1991@gmail.com">Email</a></p>
-        <p style="float: right; text-align: right;">Hosted on GitHub Pages</p>
+        <p class="col-right">Hosted on GitHub Pages</p>
       </div>
     </div>
   </footer>
