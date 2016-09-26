@@ -54,7 +54,7 @@ The `MenuSpy()` constructor accepts two arguments: the container element and an 
 | Option             | Type     | Default                             | Description                                                              |
 | ------------------ | -------- | ----------------------------------- | ------------------------------------------------------------------------ |
 | `menuItemSelector` | String   | `a[href^="#"]`                      | Menu items selector.                                                     |
-| `menuItemSelector` | String   | `active`                            | Class applied on menu item relative to the currently visible section.    |
+| `activeClass`      | String   | `active`                            | Class applied on menu item relative to the currently visible section.    |
 | `threshold`        | Integer  | `15`                                | Ammount of space between your menu and the next section to be activated. |
 | `hashTimeout`      | Integer  | `600`                               | Timeout to apply browser's hash location.                                |
 | `callback`         | Function | `function(anchorElm, targetElm) {}` | A function to be called every time a new menu item activates.            |
