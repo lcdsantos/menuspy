@@ -1,6 +1,6 @@
 # MenuSpy
 
-A JavaScript library to make navigation menus highlight active item based on the scroll position.
+A JavaScript library to make navigation menus highlight the item based on currently in view section.
 
 * No dependencies
 * Easy to use
