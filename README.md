@@ -2,10 +2,9 @@
 
 A JavaScript library to make navigation menus highlight active item based on the scroll position.
 
-* Features
-* Usage
-* Options
-* Examples
+* No dependencies
+* Easy to use
+* Lightweight and fast
 
 ## Usage
 
