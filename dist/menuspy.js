@@ -1,4 +1,4 @@
-/*! MenuSpy v1.0.0 (Aug 29 2016) - http://lcdsantos.github.io/menuspy/ - Copyright (c) 2016 Leonardo Santos; MIT License */
+/*! MenuSpy v1.0.0 (Nov 29 2016) - http://leocs.me/menuspy/ - Copyright (c) 2016 Leonardo Santos; MIT License */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
@@ -112,10 +112,14 @@ MenuSpy.prototype.assignValues = function assignValues () {
 MenuSpy.prototype.cacheItems = function cacheItems () {
   this.scrollItems = this.menuItems.map(function (a) {
     var elm = document.querySelector(a.getAttribute('href'));
-    var offset = utils.offset(elm).top;
-
-    return { elm: elm, offset: offset };
+    if (elm) {
+      var offset = utils.offset(elm).top;
+      return { elm: elm, offset: offset };
+    } else {
+      console.warn('MenuSpy warning: %s not found on page.', a.href);
+    }
   });
+  this.scrollItems = this.scrollItems.filter( Boolean );
 };
 
 MenuSpy.prototype.tick = function tick () {

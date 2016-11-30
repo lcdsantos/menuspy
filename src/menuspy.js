@@ -44,10 +44,14 @@ class MenuSpy {
   cacheItems() {
     this.scrollItems = this.menuItems.map((a) => {
       const elm = document.querySelector(a.getAttribute('href'));
-      const offset = utils.offset(elm).top;
-
-      return { elm, offset };
+      if (elm) {
+        const offset = utils.offset(elm).top;
+        return { elm, offset };
+      } else {
+        console.warn('MenuSpy warning: %s not found on page.', a.href);
+      }
     });
+    this.scrollItems = this.scrollItems.filter( Boolean );
   }
 
   tick() {
