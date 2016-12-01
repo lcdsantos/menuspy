@@ -20,9 +20,15 @@ header {
     font-size: 16px;
     line-height: 26px;
     padding: 16px 12px;
-    margin: 0 6px;
+    margin: 0 20px;
     position: relative;
     transition: 0.2s;
+
+    @media screen and (max-width: 960px) {
+      margin: 0;
+      font-size: 12px;
+      padding: 8px 10px;
+    }
 
     &:after {
       content: "";
@@ -44,7 +50,6 @@ header {
     }
 
     a {
-      color: $color-dark-blue;
       transition: 0.2s;
 
       &:hover {
@@ -68,7 +73,7 @@ main {
     height: 100%;
     background: #FFF;
     transform-origin: 0 0;
-    transform: skewY(-8deg);
+    transform: skewY(-6deg);
   }
 
   a {
@@ -85,16 +90,13 @@ pre {
   padding: 1em !important;
   border: none;
   font-size: 0.8em;
+  overflow: auto;
 }
 
 footer {
-  color: #888;
+  color: mix($color-dark-blue, #FFF, 80%);
   margin-top: 2em;
-  font-size: 0.88em;
-
-  a:hover {
-    color: #444;
-  }
+  font-size: 12/16*1em;
 
   .container {
     border-top: 1px solid #F0F0F0;
@@ -103,7 +105,27 @@ footer {
   }
 
   .copy {
-    font-size: 12px;
     line-height: 1.8;
+  }
+
+  .col-left {
+    float: left;
+  }
+
+  .col-right {
+    float: right;
+    text-align: right;
+  }
+
+  a:hover {
+    color: #b9cc14;
+  }
+
+  @media screen and (max-width: 960px) {
+    .col-left,
+    .col-right {
+      float: none;
+      text-align: center;
+    }
   }
 }

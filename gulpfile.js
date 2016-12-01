@@ -49,13 +49,13 @@ gulp.task('svg', function () {
 
 gulp.task('serve', ['sass'], function() {
   browserSync.init({
-    server: './'
+    server: './',
+    files: ['*.html', 'assets/img/**/*']
   });
 
-  gulp.watch('**/*.scss', { cwd: './src/scss/' },           ['sass']);
-  gulp.watch('**/*.js',   { cwd: './src/js/' },             ['scripts']);
-  gulp.watch('**/*.svg',  { cwd: './src/img/svgsprites/' }, ['svg']);
-  gulp.watch('*.html',    { cwd: './' }).on('change', browserSync.reload);
+  gulp.watch(['**/*.scss'], { cwd: './src/scss/', debounceDelay: 300 }, ['sass']);
+  gulp.watch(['**/*.js'], { cwd: './src/js/' }, ['scripts']);
+  gulp.watch(['**/*.svg'], { cwd: './src/img/svgsprites/' }, ['svg']);
 });
 
 gulp.task('default', ['sass', 'scripts', 'svg', 'serve']);

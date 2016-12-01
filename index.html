@@ -2,27 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="A JavaScript library to make navigation menus highlight active item based on the scroll position.">
+  <meta name="description" content="A JavaScript library to make navigation menus activate the item based on currently in view section.">
   <meta name="robots" content="all">
+  <meta name="viewport" content="initial-scale=1,user-scalable=no">
   <title>MenuSpy</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400,600">
   <link rel="stylesheet" href="assets/css/main.css">
 
-  <meta property="og:title"       content="MenuSpy">
-  <meta property="og:type"        content="website">
-  <meta property="og:description" content="A JavaScript library to make navigation menus highlight active item based on the scroll position.">
-  <meta property="og:url"         content="http://lcdsantos.github.io/menuspy/">
-  <meta property="og:site_name"   content="MenuSpy">
-  <meta property="og:image"       content="http://lcdsantos.github.io/menuspy/share.jpg">
+  <link rel="canonical" href="https://leocs.me/menuspy/">
+
+  <meta property="og:title"        content="MenuSpy">
+  <meta property="og:type"         content="website">
+  <meta property="og:description"  content="A JavaScript library to make navigation menus activate the item based on currently in view section.">
+  <meta property="og:url"          content="https://leocs.me/menuspy/">
+  <meta property="og:site_name"    content="MenuSpy">
+  <meta property="og:image"        content="https://leocs.me/menuspy/assets/img/share.png">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
 
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:site"        content="@lcdsantos">
   <meta name="twitter:creator"     content="@lcdsantos">
   <meta name="twitter:title"       content="MenuSpy">
-  <meta name="twitter:description" content="A JavaScript library to make navigation menus highlight active item based on the scroll position.">
-  <meta name="twitter:image:src"   content="http://lcdsantos.github.io/menuspy/share.jpg">
+  <meta name="twitter:description" content="A JavaScript library to make navigation menus activate the item based on currently in view section.">
+  <meta name="twitter:image:src"   content="https://leocs.me/menuspy/assets/img/share.png">
 
   <link rel="author" href="https://plus.google.com/110463198138936295653/posts">
 
@@ -47,11 +52,11 @@
     <div class="container">
       <div class="center">
         <h1>MenuSpy</h1>
-        <p>A JavaScript library to make navigation menus highlight active item based on the scroll position.</p>
+        <p>A JavaScript library to make navigation menus activate the item based on currently in view section.</p>
         <div class="btn-group">
-          <a href="#" class="btn">Download (ZIP)</a>
-          <a href="#" class="btn">Download (TAR)</a>
-          <a href="#" class="btn">View on GitHub</a>
+          <a href="https://github.com/lcdsantos/menuspy/zipball/master" class="btn">Download (ZIP)</a>
+          <a href="https://github.com/lcdsantos/menuspy/tarball/master" class="btn">Download (TAR)</a>
+          <a href="https://github.com/lcdsantos/menuspy" class="btn">View on GitHub</a>
         </div>
       </div>
     </div>
@@ -61,43 +66,43 @@
     <div class="container">
       <div class="anchor" id="features"></div>
 
-      <h2>FEATURES</h2>
+      <h2>Features</h2>
 
       <ul class="features">
         <li class="features__item">
           <svg class="features__icon"><use xlink:href="assets/img/svgsprites.svg#js"></use></svg>
-          <h2 class="features__title">No dependencies.</h2>
+          <h2 class="features__title">No dependencies</h2>
           <p class="features__desc">Written in plain JavaScript, using ES6. Doesn't require any external library or framework.</p>
         </li>
 
         <li class="features__item">
           <svg class="features__icon"><use xlink:href="assets/img/svgsprites.svg#easy"></use></svg>
-          <h2 class="features__title">Easy to use.</h2>
+          <h2 class="features__title">Easy to use</h2>
           <p class="features__desc">Just include the script in your page and initialize it. The items in your menu will get active class when the section referenced in your anchor is visible.</p>
         </li>
 
         <li class="features__item">
           <svg class="features__icon"><use xlink:href="assets/img/svgsprites.svg#fast"></use></svg>
-          <h2 class="features__title">Lightweight and fast.</h2>
+          <h2 class="features__title">Lightweight and fast</h2>
           <p class="features__desc">Really small footprint and uses <code>requestAnimationFrame</code> to monitor scroll position.</p>
         </li>
       </ul>
 
       <ul class="social-buttons">
         <li class="social-buttons__item social-buttons__item--github">
-          <iframe width="85" height="20" title="Star on GitHub" src="http://ghbtns.com/github-btn.html?user=lcdsantos&repo=menuspy&type=watch&count=true"></iframe>
+          <iframe width="85" height="20" title="Star on GitHub" src="https://ghbtns.com/github-btn.html?user=lcdsantos&repo=menuspy&type=watch&count=true"></iframe>
         </li>
 
         <li class="social-buttons__item social-buttons__item--tweet">
-          <a href="https://twitter.com/share" class="twitter-share-button" data-text="A JavaScript library to make navigation menus highlight active item based on the scroll position." data-via="lcdsantos" data-related="lcdsantos">Tweet</a>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-text="A #JavaScript library to make navigation menus activate the item based on currently in view section." data-related="lcdsantos">Tweet</a>
         </li>
 
         <li class="social-buttons__item social-buttons__item--facebook">
-          <div class="fb-like" data-href="http://lcdsantos.github.io/menuspy/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+          <div class="fb-like" data-href="https://leocs.me/menuspy/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
         </li>
 
         <li class="social-buttons__item social-buttons__item--flattr">
-          <a href="https://flattr.com/submit/auto?user_id=lcdsantos&url=http%3A%2F%2Flcdsantos.github.io%2Fmenuspy%2F" target="_blank"><img src="//api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
+          <a href="https://flattr.com/submit/auto?user_id=lcdsantos&url=https%3A%2F%2Fleocs.me%2Fmenuspy%2F" target="_blank"><img src="//api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
         </li>
 
         <li class="social-buttons__item social-buttons__item--gplus">
@@ -108,7 +113,7 @@
 
     <div class="container">
       <div class="anchor" id="usage"></div>
-      <h2>USAGE</h2>
+      <h2>Usage</h2>
 
       <ul class="steps">
         <li class="step-item">
@@ -142,7 +147,7 @@ var ms = new MenuSpy(elm);</code></pre>
     <div class="container">
       <div class="anchor" id="options"></div>
 
-      <h2>OPTIONS</h2>
+      <h2>Options</h2>
 
       <p>You can pass options as the second parameter on plugin initialization. For example:</p>
       <pre class="prettyprint lang-js"><code>var elm = document.querySelector('#main-header');
@@ -150,54 +155,56 @@ var ms = new MenuSpy(elm, {
   activeClass: 'current-item'
 });</code></pre>
 
-      <table class="table-options">
-        <thead>
-          <tr>
-            <th>Option</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>menuItemSelector</code></td>
-            <td>String</td>
-            <td><code>a[href^="#"]</code></td>
-            <td>Menu items selector.</td>
-          </tr>
-          <tr>
-            <td><code>activeClass</code></td>
-            <td>String</td>
-            <td><code>active</code></td>
-            <td>Class applied on menu item relative to the currently visible section.</td>
-          </tr>
-          <tr>
-            <td><code>threshold</code></td>
-            <td>Integer</td>
-            <td><code>15</code></td>
-            <td>Ammount of space between your menu and the next section to be activated.</td>
-          </tr>
-          <tr>
-            <td><code>hashTimeout</code></td>
-            <td>Integer</td>
-            <td><code>600</code></td>
-            <td>Timeout to apply browser's hash location.</td>
-          </tr>
-          <tr>
-            <td><code>callback</code></td>
-            <td>Function</td>
-            <td><code>function(anchorElm, targetElm) {}</code></td>
-            <td>A function to be called every time a new menu item activates.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-options-wrapper">
+        <table class="table-options">
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>menuItemSelector</code></td>
+              <td>String</td>
+              <td><code>a[href^="#"]</code></td>
+              <td>Menu items selector.</td>
+            </tr>
+            <tr>
+              <td><code>activeClass</code></td>
+              <td>String</td>
+              <td><code>active</code></td>
+              <td>Class applied on menu item relative to the currently visible section.</td>
+            </tr>
+            <tr>
+              <td><code>threshold</code></td>
+              <td>Integer</td>
+              <td><code>15</code></td>
+              <td>Ammount of space between your menu and the next section to be activated.</td>
+            </tr>
+            <tr>
+              <td><code>hashTimeout</code></td>
+              <td>Integer</td>
+              <td><code>600</code></td>
+              <td>Timeout to apply browser's hash location.</td>
+            </tr>
+            <tr>
+              <td><code>callback</code></td>
+              <td>Function</td>
+              <td><code>function(anchorElm, targetElm) {}</code></td>
+              <td>A function to be called every time a new menu item activates.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="container">
       <div class="anchor" id="examples"></div>
 
-      <h2>EXAMPLES</h2>
+      <h2>Examples</h2>
 
       <div class="examples">
         <a href="./examples/fixed-header.html" class="examples__item btn--inverted">Fixed header</a>
@@ -209,10 +216,10 @@ var ms = new MenuSpy(elm, {
 
   <footer>
     <div class="container">
-      <div class="copy">
-        <p style="float: left;">Project maintained by <b>Leonardo Santos</b> <br>
+      <div class="cf copy">
+        <p class="col-left">Project maintained by <b>Leonardo Santos</b> <br>
         <a href="https://github.com/lcdsantos">Github</a> • <a href="https://twitter.com/lcdsantos">Twitter</a> • <a href="mailto:leocs.1991@gmail.com">Email</a></p>
-        <p style="float: right; text-align: right;">Hosted on GitHub Pages</p>
+        <p class="col-right">Hosted on GitHub Pages</p>
       </div>
     </div>
   </footer>
