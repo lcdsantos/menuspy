@@ -43,7 +43,7 @@ class MenuSpy {
 
   cacheItems() {
     this.scrollItems = this.menuItems.map((a) => {
-      const elm = document.querySelector(a.getAttribute('href'));
+      const elm = document.getElementById(a.getAttribute('href').slice(1));
       if (elm) {
         const offset = utils.offset(elm).top;
         return { elm, offset };
