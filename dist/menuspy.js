@@ -1,8 +1,8 @@
-/*! MenuSpy v1.0.0 (Nov 29 2016) - http://leocs.me/menuspy/ - Copyright (c) 2016 Leonardo Santos; MIT License */
+/*! MenuSpy v1.0.2 (Jun 20 2017) - http://leocs.me/menuspy/ - Copyright (c) 2017 Leonardo Santos; MIT License */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global.MenuSpy = factory());
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.MenuSpy = factory());
 }(this, (function () { 'use strict';
 
 var utils = {
@@ -111,7 +111,7 @@ MenuSpy.prototype.assignValues = function assignValues () {
 
 MenuSpy.prototype.cacheItems = function cacheItems () {
   this.scrollItems = this.menuItems.map(function (a) {
-    var elm = document.querySelector(a.getAttribute('href'));
+    var elm = document.getElementById(a.getAttribute('href').slice(1));
     if (elm) {
       var offset = utils.offset(elm).top;
       return { elm: elm, offset: offset };
