@@ -1,4 +1,4 @@
-/*! MenuSpy v1.0.1 (Aug 03 2017) - http://leocs.me/menuspy/ - Copyright (c) 2017 Leonardo Santos; MIT License */
+/*! MenuSpy v1.1.0 (Aug 04 2017) - http://leocs.me/menuspy/ - Copyright (c) 2017 Leonardo Santos; MIT License */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -135,7 +135,7 @@ MenuSpy.prototype.activateItem = function activateItem (inViewElm) {
   var activeClass = this.options.activeClass;
   var callback = this.options.callback;
 
-  if (this.lastInViewElm !== inViewElm.target) {
+  if (inViewElm && this.lastInViewElm !== inViewElm.target) {
     this.lastInViewElm = inViewElm.target;
 
     this.scrollItems.forEach(function (item) {

@@ -65,7 +65,7 @@ class MenuSpy {
     const activeClass = this.options.activeClass;
     const callback = this.options.callback;
 
-    if (this.lastInViewElm !== inViewElm.target) {
+    if (inViewElm && this.lastInViewElm !== inViewElm.target) {
       this.lastInViewElm = inViewElm.target;
 
       this.scrollItems.forEach((item) => {
