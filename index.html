@@ -137,6 +137,8 @@
     &lt;/ul&gt;
   &lt;/nav&gt;
 &lt;/header&gt;</code></pre>
+          <p>You can also use data-target on the anchor element with a selector. Example:</p>
+          <pre class="prettyprint lang-html"><code>&lt;a href=&quot;#anything&quot; data-target=&quot;selector&quot;&gt;Anything&lt;/a&gt;</code></pre>
           <pre class="prettyprint lang-js"><code>var elm = document.querySelector('#main-header');
 var ms = new MenuSpy(elm);</code></pre>
           <p>The <code>MenuSpy()</code> constructor accepts two arguments: the container element and an options object.</p>
@@ -193,7 +195,7 @@ var ms = new MenuSpy(elm, {
             <tr>
               <td><code>callback</code></td>
               <td>Function</td>
-              <td><code>function(anchorElm, targetElm) {}</code></td>
+              <td><code>function(currentItem) {}</code></td>
               <td>A function to be called every time a new menu item activates.</td>
             </tr>
           </tbody>
