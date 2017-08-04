@@ -41,6 +41,12 @@ Initialize the plugin on your menu element
 </header>
 ```
 
+You can also use `data-target` on the anchor element with a selector. Example:
+
+```html
+<a href="#anything" data-target="selector">Anything</a>
+```
+
 ```js
 var elm = document.querySelector('#main-header');
 var ms = new MenuSpy(elm);
@@ -57,4 +63,4 @@ The `MenuSpy()` constructor accepts two arguments: the container element and an 
 | `activeClass`      | String   | `active`                            | Class applied on menu item relative to the currently visible section.    |
 | `threshold`        | Integer  | `15`                                | Ammount of space between your menu and the next section to be activated. |
 | `hashTimeout`      | Integer  | `600`                               | Timeout to apply browser's hash location.                                |
-| `callback`         | Function | `function(anchorElm, targetElm) {}` | A function to be called every time a new menu item activates.            |
+| `callback`         | Function | `function(currentItem) {}`          | A function to be called every time a new menu item activates.            |

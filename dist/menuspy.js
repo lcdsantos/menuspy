@@ -1,8 +1,8 @@
-/*! MenuSpy v1.0.0 (Nov 29 2016) - http://leocs.me/menuspy/ - Copyright (c) 2016 Leonardo Santos; MIT License */
+/*! MenuSpy v1.0.1 (Aug 03 2017) - http://leocs.me/menuspy/ - Copyright (c) 2017 Leonardo Santos; MIT License */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global.MenuSpy = factory());
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.MenuSpy = factory());
 }(this, (function () { 'use strict';
 
 var utils = {
@@ -90,10 +90,10 @@ var MenuSpy = function MenuSpy(element, options) {
 
   this.debouncedHashFn = utils.debounce(function () {
     if (history.replaceState) {
-      history.replaceState(null, null, ("#" + (this$1.lastId)));
+      history.replaceState(null, null, ("#" + (this$1.lastInViewElm.id)));
     } else {
       var st = utils.scrollTop();
-      window.location.hash = this$1.lastId;
+      window.location.hash = this$1.lastInViewElm;
       window.scrollTo(0, st);
     }
   }, this.options.hashTimeout);
@@ -104,29 +104,27 @@ var MenuSpy = function MenuSpy(element, options) {
 
 MenuSpy.prototype.assignValues = function assignValues () {
   this.currScrollTop = 0;
-  this.lastId = '';
+  this.lastInViewElm = null;
   this.menuHeight = this.element.offsetHeight + this.options.threshold;
   this.menuItems = [].slice.call(this.element.querySelectorAll(this.options.menuItemSelector));
 };
 
 MenuSpy.prototype.cacheItems = function cacheItems () {
-  this.scrollItems = this.menuItems.map(function (a) {
-    var elm = document.querySelector(a.getAttribute('href'));
-    if (elm) {
-      var offset = utils.offset(elm).top;
-      return { elm: elm, offset: offset };
-    } else {
-      console.warn('MenuSpy warning: %s not found on page.', a.href);
+  this.scrollItems = this.menuItems.map(function (elm) {
+    var target = elm.dataset.target ? document.querySelector(elm.dataset.target) : document.getElementById(elm.getAttribute('href').slice(1));
+    if (target) {
+      var offset = utils.offset(target).top;
+      return { elm: elm, target: target, offset: offset };
     }
+    return false;
   });
-  this.scrollItems = this.scrollItems.filter( Boolean );
+  this.scrollItems = this.scrollItems.filter(Boolean);
 };
 
 MenuSpy.prototype.tick = function tick () {
   var fromTop = this.currScrollTop + this.menuHeight;
   var inViewElms = this.scrollItems
-    .filter(function (item) { return item.offset < fromTop; })
-    .map(function (item) { return item.elm; });
+    .filter(function (item) { return item.offset < fromTop; });
 
   this.activateItem(inViewElms.pop());
 };
@@ -134,21 +132,20 @@ MenuSpy.prototype.tick = function tick () {
 MenuSpy.prototype.activateItem = function activateItem (inViewElm) {
     var this$1 = this;
 
-  var id = inViewElm ? inViewElm.id : '';
   var activeClass = this.options.activeClass;
   var callback = this.options.callback;
 
-  if (this.lastId !== id) {
-    this.lastId = id;
+  if (this.lastInViewElm !== inViewElm.target) {
+    this.lastInViewElm = inViewElm.target;
 
-    this.menuItems.forEach(function (item) {
-      utils.removeClass(item.parentNode, activeClass);
+    this.scrollItems.forEach(function (item) {
+      utils.removeClass(item.elm.parentNode, activeClass);
 
-      if (item.getAttribute('href') === ("#" + id)) {
-        utils.addClass(item.parentNode, activeClass);
+      if (item.elm === inViewElm.elm) {
+        utils.addClass(item.elm.parentNode, activeClass);
 
         if (typeof callback === 'function') {
-          callback.call(this$1, item, inViewElm);
+          callback.call(this$1, item);
         }
 
         this$1.debouncedHashFn();
