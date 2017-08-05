@@ -21,11 +21,12 @@ class MenuSpy {
     window.addEventListener('resize', utils.debounce(() => this.assignValues()));
 
     this.debouncedHashFn = utils.debounce(() => {
+      const hash = this.lastInViewElm ? `#${this.lastInViewElm.id}` : '#';
       if (history.replaceState) {
-        history.replaceState(null, null, `#${this.lastInViewElm.id}`);
+        history.replaceState(null, null, hash);
       } else {
         const st = utils.scrollTop();
-        window.location.hash = this.lastInViewElm;
+        window.location.hash = hash;
         window.scrollTo(0, st);
       }
     }, this.options.hashTimeout);
@@ -43,7 +44,7 @@ class MenuSpy {
 
   cacheItems() {
     this.scrollItems = this.menuItems.map((elm) => {
-      const target = elm.dataset.target ? document.querySelector(elm.dataset.target) : document.getElementById(elm.getAttribute('href').slice(1));
+      const target = elm.dataset.target ? document.querySelector(elm.dataset.target) : document.getElementById(elm.hash.slice(1));
       if (target) {
         const offset = utils.offset(target).top;
         return { elm, target, offset };
@@ -55,23 +56,27 @@ class MenuSpy {
 
   tick() {
     const fromTop = this.currScrollTop + this.menuHeight;
-    const inViewElms = this.scrollItems
-      .filter((item) => item.offset < fromTop);
-
+    const inViewElms = this.scrollItems.filter((item) => item.offset < fromTop);
     this.activateItem(inViewElms.pop());
   }
 
   activateItem(inViewElm) {
-    const activeClass = this.options.activeClass;
-    const callback = this.options.callback;
+    const { activeClass, callback } = this.options;
 
-    if (inViewElm && this.lastInViewElm !== inViewElm.target) {
+    if (!inViewElm) {
+      this.scrollItems.forEach((item) => utils.removeClass(item.elm.parentNode, activeClass));
+      this.lastInViewElm = null;
+      this.debouncedHashFn();
+      return;
+    }
+
+    if (this.lastInViewElm !== inViewElm.target) {
       this.lastInViewElm = inViewElm.target;
 
       this.scrollItems.forEach((item) => {
         utils.removeClass(item.elm.parentNode, activeClass);
 
-        if (item.elm === inViewElm.elm) {
+        if (item.target === inViewElm.target) {
           utils.addClass(item.elm.parentNode, activeClass);
 
           if (typeof callback === 'function') {

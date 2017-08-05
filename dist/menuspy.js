@@ -1,4 +1,4 @@
-/*! MenuSpy v1.1.0 (Aug 04 2017) - http://leocs.me/menuspy/ - Copyright (c) 2017 Leonardo Santos; MIT License */
+/*! MenuSpy v1.1.1 (Aug 04 2017) - http://leocs.me/menuspy/ - Copyright (c) 2017 Leonardo Santos; MIT License */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -89,11 +89,12 @@ var MenuSpy = function MenuSpy(element, options) {
   window.addEventListener('resize', utils.debounce(function () { return this$1.assignValues(); }));
 
   this.debouncedHashFn = utils.debounce(function () {
+    var hash = this$1.lastInViewElm ? ("#" + (this$1.lastInViewElm.id)) : '#';
     if (history.replaceState) {
-      history.replaceState(null, null, ("#" + (this$1.lastInViewElm.id)));
+      history.replaceState(null, null, hash);
     } else {
       var st = utils.scrollTop();
-      window.location.hash = this$1.lastInViewElm;
+      window.location.hash = hash;
       window.scrollTo(0, st);
     }
   }, this.options.hashTimeout);
@@ -111,7 +112,7 @@ MenuSpy.prototype.assignValues = function assignValues () {
 
 MenuSpy.prototype.cacheItems = function cacheItems () {
   this.scrollItems = this.menuItems.map(function (elm) {
-    var target = elm.dataset.target ? document.querySelector(elm.dataset.target) : document.getElementById(elm.getAttribute('href').slice(1));
+    var target = elm.dataset.target ? document.querySelector(elm.dataset.target) : document.getElementById(elm.hash.slice(1));
     if (target) {
       var offset = utils.offset(target).top;
       return { elm: elm, target: target, offset: offset };
@@ -123,25 +124,31 @@ MenuSpy.prototype.cacheItems = function cacheItems () {
 
 MenuSpy.prototype.tick = function tick () {
   var fromTop = this.currScrollTop + this.menuHeight;
-  var inViewElms = this.scrollItems
-    .filter(function (item) { return item.offset < fromTop; });
-
+  var inViewElms = this.scrollItems.filter(function (item) { return item.offset < fromTop; });
   this.activateItem(inViewElms.pop());
 };
 
 MenuSpy.prototype.activateItem = function activateItem (inViewElm) {
     var this$1 = this;
 
-  var activeClass = this.options.activeClass;
-  var callback = this.options.callback;
+  var ref = this.options;
+    var activeClass = ref.activeClass;
+    var callback = ref.callback;
 
-  if (inViewElm && this.lastInViewElm !== inViewElm.target) {
+  if (!inViewElm) {
+    this.scrollItems.forEach(function (item) { return utils.removeClass(item.elm.parentNode, activeClass); });
+    this.lastInViewElm = null;
+    this.debouncedHashFn();
+    return;
+  }
+
+  if (this.lastInViewElm !== inViewElm.target) {
     this.lastInViewElm = inViewElm.target;
 
     this.scrollItems.forEach(function (item) {
       utils.removeClass(item.elm.parentNode, activeClass);
 
-      if (item.elm === inViewElm.elm) {
+      if (item.target === inViewElm.target) {
         utils.addClass(item.elm.parentNode, activeClass);
 
         if (typeof callback === 'function') {
