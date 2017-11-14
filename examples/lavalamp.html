@@ -55,15 +55,15 @@
   <script>
     var lavalampElm = document.querySelector('.lavalamp');
     var positionLavalamp = function(activeElm) {
-      lavalampElm.style.width = activeElm.offsetWidth + 'px';
-      lavalampElm.style.left = activeElm.offsetLeft + 'px';
+      lavalampElm.style.width = activeElm.elm.offsetWidth + 'px';
+      lavalampElm.style.left = activeElm.elm.offsetLeft + 'px';
     };
     var elm = document.querySelector('#main-header');
     var ms = new MenuSpy(elm, {
       callback: positionLavalamp
     });
 
-    positionLavalamp( elm.querySelector('li.active') );
+    positionLavalamp({ elm: elm.querySelector('li.active') });
   </script>
 </body>
 </html>
