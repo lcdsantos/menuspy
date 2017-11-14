@@ -16,7 +16,7 @@ Include MenuSpy
 
 `MenuSpy` will be available in the global scope.
 
-Or install with NPM and require as a module
+Or install via NPM/Yarn and require as a module
 
 ```
 npm install menuspy
@@ -57,10 +57,11 @@ The `MenuSpy()` constructor accepts two arguments: the container element and an 
 
 ## Options
 
-| Option             | Type     | Default                             | Description                                                              |
-| ------------------ | -------- | ----------------------------------- | ------------------------------------------------------------------------ |
-| `menuItemSelector` | String   | `a[href^="#"]`                      | Menu items selector.                                                     |
-| `activeClass`      | String   | `active`                            | Class applied on menu item relative to the currently visible section.    |
-| `threshold`        | Integer  | `15`                                | Ammount of space between your menu and the next section to be activated. |
-| `hashTimeout`      | Integer  | `600`                               | Timeout to apply browser's hash location.                                |
-| `callback`         | Function | `function(currentItem) {}`          | A function to be called every time a new menu item activates.            |
+| Option               | Type     | Default                    | Description                                                              |
+| ---------------------| -------- | -------------------------- | ------------------------------------------------------------------------ |
+| `menuItemSelector`   | String   | `a[href^="#"]`             | Menu items selector.                                                     |
+| `activeClass`        | String   | `active`                   | Class applied on menu item relative to the currently visible section.    |
+| `threshold`          | Integer  | `15`                       | Ammount of space between your menu and the next section to be activated. |
+| `enableLocationHash` | Boolean  | `true`                     | Enable or disable browser's hash location change.                        |
+| `hashTimeout`        | Integer  | `600`                      | Timeout to apply browser's hash location.                                |
+| `callback`           | Function | `function(currentItem) {}` | A function to be called every time a new menu item activates.            |

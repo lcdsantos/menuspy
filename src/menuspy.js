@@ -7,11 +7,12 @@ class MenuSpy {
     }
 
     const defaults = {
-      menuItemSelector: 'a[href^="#"]',
-      activeClass     : 'active',
-      threshold       : 15,
-      hashTimeout     : 600,
-      callback        : null
+      menuItemSelector   : 'a[href^="#"]',
+      activeClass        : 'active',
+      threshold          : 15,
+      enableLocationHash : true,
+      hashTimeout        : 600,
+      callback           : null
     };
 
     this.element = element;
@@ -66,7 +67,11 @@ class MenuSpy {
     if (!inViewElm) {
       this.scrollItems.forEach((item) => utils.removeClass(item.elm.parentNode, activeClass));
       this.lastInViewElm = null;
-      this.debouncedHashFn();
+
+      if (this.enableLocationHash) {
+        this.debouncedHashFn();
+      }
+
       return;
     }
 
@@ -83,7 +88,9 @@ class MenuSpy {
             callback.call(this, item);
           }
 
-          this.debouncedHashFn();
+          if (this.enableLocationHash) {
+            this.debouncedHashFn();
+          }
         }
       });
     }

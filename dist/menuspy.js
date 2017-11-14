@@ -75,11 +75,12 @@ var MenuSpy = function MenuSpy(element, options) {
   }
 
   var defaults = {
-    menuItemSelector: 'a[href^="#"]',
-    activeClass   : 'active',
-    threshold     : 15,
-    hashTimeout   : 600,
-    callback      : null
+    menuItemSelector : 'a[href^="#"]',
+    activeClass      : 'active',
+    threshold        : 15,
+    enableLocationHash : true,
+    hashTimeout      : 600,
+    callback         : null
   };
 
   this.element = element;
@@ -138,7 +139,11 @@ MenuSpy.prototype.activateItem = function activateItem (inViewElm) {
   if (!inViewElm) {
     this.scrollItems.forEach(function (item) { return utils.removeClass(item.elm.parentNode, activeClass); });
     this.lastInViewElm = null;
-    this.debouncedHashFn();
+
+    if (this.enableLocationHash) {
+      this.debouncedHashFn();
+    }
+
     return;
   }
 
@@ -155,7 +160,9 @@ MenuSpy.prototype.activateItem = function activateItem (inViewElm) {
           callback.call(this$1, item);
         }
 
-        this$1.debouncedHashFn();
+        if (this$1.enableLocationHash) {
+          this$1.debouncedHashFn();
+        }
       }
     });
   }
