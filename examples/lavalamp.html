@@ -52,19 +52,19 @@
     <li class="active"><a href="lavalamp.html">Lavalamp menu</a></li>
   </ul>
 
-  <script src="../src/js/menuspy.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/menuspy@1.2.0/dist/menuspy.min.js"></script>
   <script>
-    var lavalampElm = document.querySelector('.lavalamp');
-    var positionLavalamp = function(activeElm) {
-      lavalampElm.style.width = activeElm.offsetWidth + 'px';
-      lavalampElm.style.left = activeElm.offsetLeft + 'px';
-    };
-    var elm = document.querySelector('#main-header');
-    var ms = new MenuSpy(elm, {
-      callback: positionLavalamp
-    });
+      var lavalampElm = document.querySelector('.lavalamp');
+      var positionLavalamp = function(activeElm) {
+        lavalampElm.style.width = activeElm.elm.offsetWidth + 'px';
+        lavalampElm.style.left = activeElm.elm.offsetLeft + 'px';
+      };
+      var elm = document.querySelector('#main-header');
+      var ms = new MenuSpy(elm, {
+        callback: positionLavalamp
+      });
 
-    positionLavalamp( elm.querySelector('li.active') );
+      positionLavalamp({ elm: elm.querySelector('li.active') });
   </script>
 </body>
 </html>
