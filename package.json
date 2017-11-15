@@ -20,7 +20,7 @@
     "gulp-uglify": "^3.0.0"
   },
   "dependencies": {
-    "menuspy": "^1.2.0",
+    "menuspy": "^1.2.1",
     "normalize.css": "^4.2.0"
   }
 }
