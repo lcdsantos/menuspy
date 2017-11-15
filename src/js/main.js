@@ -1,4 +1,4 @@
-var MenuSpy = require('./menuspy');
+var MenuSpy = require('menuspy');
 
 (function() {
 

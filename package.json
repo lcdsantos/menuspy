@@ -1,5 +1,5 @@
 {
-  "name": "menuspy",
+  "name": "menuspy-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -20,6 +20,7 @@
     "gulp-uglify": "^3.0.0"
   },
   "dependencies": {
+    "menuspy": "^1.2.0",
     "normalize.css": "^4.2.0"
   }
 }
