@@ -19,7 +19,8 @@ class MenuSpy {
     this.options = utils.extend(defaults, options);
 
     this.assignValues();
-    window.addEventListener('resize', utils.debounce(() => this.assignValues()));
+    this.debouncedAssignValuesFn = utils.debounce(() => this.assignValues());
+    window.addEventListener('resize', this.debouncedAssignValuesFn);
 
     this.debouncedHashFn = utils.debounce(() => {
       const hash = this.lastInViewElm ? `#${this.lastInViewElm.id}` : '#';
@@ -41,6 +42,7 @@ class MenuSpy {
     this.lastInViewElm = null;
     this.menuHeight = this.element.offsetHeight + this.options.threshold;
     this.menuItems = [].slice.call(this.element.querySelectorAll(this.options.menuItemSelector));
+    this.raf = null;
   }
 
   cacheItems() {
@@ -104,7 +106,15 @@ class MenuSpy {
       this.tick();
     }
 
-    window.requestAnimationFrame(this.scrollFn.bind(this));
+    this.raf = window.requestAnimationFrame(this.scrollFn.bind(this));
+  }
+
+  destroy() {
+    if (this.raf) {
+      window.cancelAnimationFrame(this.raf);
+    }
+
+    window.removeEventListener('resize', this.debouncedAssignValuesFn);
   }
 }
 

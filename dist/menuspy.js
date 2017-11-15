@@ -87,7 +87,8 @@ var MenuSpy = function MenuSpy(element, options) {
   this.options = utils.extend(defaults, options);
 
   this.assignValues();
-  window.addEventListener('resize', utils.debounce(function () { return this$1.assignValues(); }));
+  this.debouncedAssignValuesFn = utils.debounce(function () { return this$1.assignValues(); });
+  window.addEventListener('resize', this.debouncedAssignValuesFn);
 
   this.debouncedHashFn = utils.debounce(function () {
     var hash = this$1.lastInViewElm ? ("#" + (this$1.lastInViewElm.id)) : '#';
@@ -109,6 +110,7 @@ MenuSpy.prototype.assignValues = function assignValues () {
   this.lastInViewElm = null;
   this.menuHeight = this.element.offsetHeight + this.options.threshold;
   this.menuItems = [].slice.call(this.element.querySelectorAll(this.options.menuItemSelector));
+  this.raf = null;
 };
 
 MenuSpy.prototype.cacheItems = function cacheItems () {
@@ -176,7 +178,15 @@ MenuSpy.prototype.scrollFn = function scrollFn () {
     this.tick();
   }
 
-  window.requestAnimationFrame(this.scrollFn.bind(this));
+  this.raf = window.requestAnimationFrame(this.scrollFn.bind(this));
+};
+
+MenuSpy.prototype.destroy = function destroy () {
+  if (this.raf) {
+    window.cancelAnimationFrame(this.raf);
+  }
+
+  window.removeEventListener('resize', this.debouncedAssignValuesFn);
 };
 
 return MenuSpy;
