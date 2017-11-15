@@ -70,7 +70,7 @@ class MenuSpy {
       this.scrollItems.forEach((item) => utils.removeClass(item.elm.parentNode, activeClass));
       this.lastInViewElm = null;
 
-      if (this.enableLocationHash) {
+      if (this.options.enableLocationHash) {
         this.debouncedHashFn();
       }
 
@@ -90,7 +90,7 @@ class MenuSpy {
             callback.call(this, item);
           }
 
-          if (this.enableLocationHash) {
+          if (this.options.enableLocationHash) {
             this.debouncedHashFn();
           }
         }
