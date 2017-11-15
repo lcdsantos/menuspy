@@ -11,13 +11,13 @@
   "devDependencies": {
     "browser-sync": "^2.14.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
+    "gulp-autoprefixer": "^4.0.0",
     "gulp-browserify": "^0.5.1",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
+    "gulp-sass": "^3.1.0",
     "gulp-svgmin": "^1.2.2",
     "gulp-svgstore": "^6.0.0",
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^3.0.0"
   },
   "dependencies": {
     "normalize.css": "^4.2.0"
