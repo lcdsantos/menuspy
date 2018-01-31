@@ -18,7 +18,7 @@ Include MenuSpy
 
 Or install via NPM/Yarn and require as a module
 
-Npm
+NPM
 
 ```
 npm install menuspy
