@@ -1,4 +1,4 @@
-import utils from './utils.js';
+import utils from './utils';
 
 class MenuSpy {
   constructor(element, options) {
@@ -49,12 +49,12 @@ class MenuSpy {
     this.scrollItems = this.menuItems.map((elm) => {
       const target = elm.dataset.target ? document.querySelector(elm.dataset.target) : document.getElementById(elm.hash.slice(1));
       if (target) {
-        const offset = utils.offset(target).top;
+        const offset = Math.floor(utils.offset(target).top);
         return { elm, target, offset };
       }
       return false;
     });
-    this.scrollItems = this.scrollItems.filter(Boolean);
+    this.scrollItems = this.scrollItems.filter(Boolean).sort((a, b) => a.offset - b.offset);
   }
 
   tick() {
