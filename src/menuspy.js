@@ -15,7 +15,7 @@ class MenuSpy {
       callback           : null
     };
 
-    this.element = element;
+    this.element = typeof element === 'string' ? document.querySelector(element) : element;
     this.options = utils.extend(defaults, options);
 
     this.assignValues();
