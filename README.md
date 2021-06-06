@@ -16,7 +16,7 @@ Include MenuSpy
 
 `MenuSpy` will be available in the global scope.
 
-Or install via NPM/Yarn and require as a module
+You can also use NPM / Yarn to install it and then require it as a module.
 
 NPM
 
@@ -30,11 +30,15 @@ Yarn
 yarn add menuspy
 ```
 
+Require the module:
+
 ```js
 var MenuSpy = require('menuspy');
 ```
 
-Initialize the plugin on your menu element
+---
+
+Example of menu element:
 
 ```html
 <header id="main-header">
@@ -55,6 +59,8 @@ You can also use `data-target` on the anchor element with a selector. Example:
 <a href="#anything" data-target="selector">Anything</a>
 ```
 
+Initialize the plugin on your menu element.
+
 ```js
 var elm = document.querySelector('#main-header');
 var ms = new MenuSpy(elm);
@@ -65,11 +71,11 @@ The `MenuSpy()` constructor accepts two arguments: the container element and an 
 
 ## Options
 
-| Option               | Type     | Default                    | Description                                                              |
-| ---------------------| -------- | -------------------------- | ------------------------------------------------------------------------ |
-| `menuItemSelector`   | String   | `a[href^="#"]`             | Menu items selector.                                                     |
-| `activeClass`        | String   | `active`                   | Class applied on menu item relative to the currently visible section.    |
-| `threshold`          | Integer  | `15`                       | Ammount of space between your menu and the next section to be activated. |
-| `enableLocationHash` | Boolean  | `true`                     | Enable or disable browser's hash location change.                        |
-| `hashTimeout`        | Integer  | `600`                      | Timeout to apply browser's hash location.                                |
-| `callback`           | Function | `function(currentItem) {}` | A function to be called every time a new menu item activates.            |
+| Option               | Type     | Default                    | Description                                                             |
+| ---------------------| -------- | -------------------------- | ----------------------------------------------------------------------- |
+| `menuItemSelector`   | String   | `a[href^="#"]`             | Menu items selector.                                                    |
+| `activeClass`        | String   | `active`                   | Class applied on menu item relative to the currently visible section.   |
+| `threshold`          | Integer  | `15`                       | Amount of space between your menu and the next section to be activated. |
+| `enableLocationHash` | Boolean  | `true`                     | Enable or disable browser's hash location change.                       |
+| `hashTimeout`        | Integer  | `600`                      | Timeout to apply browser's hash location.                               |
+| `callback`           | Function | `function(currentItem) {}` | A function to be called every time a new menu item activates.           |
